@@ -374,8 +374,10 @@
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 32px 28px;
+            overflow: hidden;
             transition: all 0.25s;
+            display: flex;
+            flex-direction: column;
         }
 
         .feature-card:hover {
@@ -384,16 +386,14 @@
             transform: translateY(-2px);
         }
 
-        .feature-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--orange-glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 20px;
+        .feature-image {
+            width: 100%;
+            aspect-ratio: auto;
+            display: block;
+        }
+
+        .feature-card-content {
+            padding: 30px;
         }
 
         .feature-card h3 {
@@ -743,34 +743,46 @@
 
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">&#x1F525;</div>
-                    <h3>Light Your Fire</h3>
-                    <p>Signal that you're available, arriving soon, or planning to be on later. Your campfire crew sees your status instantly.</p>
+                    <img src="lightfire.png" alt="Light Your Fire" class="feature-image">
+                    <div class="feature-card-content">
+                        <h3>Light Your Fire</h3>
+                        <p>Signal that you're available, arriving soon, or planning to be on later. Your campfire crew sees your status instantly.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#x1F465;</div>
-                    <h3>Campfire Groups</h3>
-                    <p>Create campfires for your friend groups, gaming squads, or anyone you want to coordinate with. Share a code to invite people in.</p>
+                    <img src="campfiregroups.png" alt="Campfire Groups" class="feature-image">
+                    <div class="feature-card-content">
+                        <h3>Campfire Groups</h3>
+                        <p>Create campfires for your friend groups, gaming squads, or anyone you want to coordinate with. Share a code to invite people in.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#x1F30D;</div>
-                    <h3>Time Zone Aware</h3>
-                    <p>Checkin shows everyone's local time so you can see when your friends across the world are actually free.</p>
+                    <img src="timezoneaware.png" alt="Time Zone Aware" class="feature-image">
+                    <div class="feature-card-content">
+                        <h3>Time Zone Aware</h3>
+                        <p>Checkin shows everyone's local time so you can see when your friends across the world are actually free.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#x1F3B2;</div>
-                    <h3>Campfire Tools</h3>
-                    <p>Roll dice, create polls, track counters, and more. Built-in tools to help your group decide what to do once everyone's together.</p>
+                    <img src="campfiretools.png" alt="Campfire Tools" class="feature-image">
+                    <div class="feature-card-content">
+                        <h3>Campfire Tools</h3>
+                        <p>Roll dice, create polls, track counters, and more. Built-in tools to help your group decide what to do once everyone's together.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">&#x1F514;</div>
-                    <h3>Smart Notifications</h3>
-                    <p>Get notified when friends check in so you never miss a session. Customize alerts per group to keep things quiet when you want.</p>
+                    <img src="smartnotifications.png" alt="Smart Notifications" class="feature-image">
+                    <div class="feature-card-content">
+                        <h3>Smart Notifications</h3>
+                        <p>Get notified when friends check in so you never miss a session. Customize alerts per group to keep things quiet when you want.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><svg width="20" height="16" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.2477 1.17217C14.0647 0.616946 12.816 0.222936 11.5334 0.000170713C11.3586 0.322301 11.2003 0.653558 11.0591 0.992597C10.3769 0.886989 9.68785 0.833837 8.99786 0.833582C8.30904 0.833582 7.61684 0.887307 6.93643 0.991234C6.79747 0.654633 6.6361 0.32087 6.46095 0C5.17825 0.224891 3.92943 0.619689 2.74578 1.1745C0.394972 4.74332 -0.242106 8.22297 0.0764332 11.6532C1.45298 12.6966 2.9936 13.4901 4.63139 13.9994C4.99869 13.4906 5.32768 12.9489 5.60704 12.3852C5.07406 12.1814 4.55974 11.9296 4.07013 11.6325C4.19896 11.5367 4.32497 11.4379 4.44672 11.3419C5.87041 12.0282 7.42603 12.3861 8.99996 12.3861C10.574 12.3861 12.1295 12.0282 13.5533 11.3418C13.6765 11.445 13.8025 11.5438 13.9299 11.6324C13.4393 11.93 12.9241 12.1825 12.3902 12.3871C12.6705 12.952 12.9969 13.4916 13.3659 14C15.0052 13.4924 16.547 12.6989 17.9239 11.6542L17.9235 11.6546C18.2973 7.6767 17.285 4.22901 15.2477 1.17217ZM6.00987 9.54365C5.12221 9.54365 4.38883 8.71694 4.38883 7.69992C4.38883 6.68291 5.09669 5.84898 6.00704 5.84898C6.91739 5.84898 7.64506 6.68291 7.62951 7.69992C7.61391 8.71694 6.91457 9.54365 6.00987 9.54365ZM11.9901 9.54365C11.101 9.54365 10.3704 8.71694 10.3704 7.69992C10.3704 6.68291 11.0783 5.84898 11.9901 5.84898C12.9018 5.84898 13.6238 6.68291 13.6083 7.69992C13.5927 8.71694 12.8947 9.54365 11.9901 9.54365Z" fill="#FF8D28"/></svg></div>
-                    <h3>Discord Integration</h3>
-                    <p>Link your Discord and your game activity shows up automatically in Checkin, so friends know exactly what you're playing.</p>
+                    <img src="discordintegration.png" alt="Discord Integration" class="feature-image">
+                    <div class="feature-card-content">
+                        <h3>Discord Integration</h3>
+                        <p>Link your Discord and your game activity shows up automatically in Checkin, so friends know exactly what you're playing.</p>
+                    </div>
                 </div>
             </div>
 
@@ -812,9 +824,9 @@
                 <span>Checkin</span>
             </div>
             <div class="footer-links">
-                <a href="#">Discord</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
+                <a href="https://discord.gg/checkin" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="terms-of-service.html">Terms</a>
             </div>
             <p class="footer-copy">&copy; 2026 Checkin. All rights reserved.</p>
         </div>
