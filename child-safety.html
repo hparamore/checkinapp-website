@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Child Safety Standards — Checkin</title>
+    <meta name="description" content="Checkin Child Safety Standards: how we prevent and respond to abuse of minors.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Goldman Sans';
+            src: url('fonts/GoldmanSans_A_Rg.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Goldman Sans';
+            src: url('fonts/GoldmanSans_A_Bd.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF8D28;
+            --bg-primary: #0D0D0F;
+            --bg-secondary: #141418;
+            --text-primary: #F5F5F7;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #71717A;
+            --border: rgba(255, 255, 255, 0.06);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page-header {
+            padding: 24px 64px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .page-header a:hover {
+            color: var(--orange);
+        }
+
+        .page-header span {
+            font-family: 'Goldman Sans', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 64px 24px 100px;
+        }
+
+        h1 {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .last-updated {
+            color: var(--text-tertiary);
+            font-size: 14px;
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .callout {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--orange);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .callout p {
+            margin-bottom: 8px;
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            padding: 40px 64px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 20px 24px;
+            }
+            .content {
+                padding: 40px 20px 80px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            footer {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <a href="index.html">
+            <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="hm" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="16" y="3" width="68" height="94">
+                    <path d="M28.87 35.21C22.09 41.89 15.43 47.64 16.86 57.92C18.27 68.05 26.77 74.36 33.78 81.17C37.89 85.16 46.85 93.69 49.62 96.34C50.08 96.78 50.83 96.78 51.3 96.34C51.3 96.34 71.79 79.64 77.13 71.84C82.47 64.04 84.99 53.26 82.15 43.77C79.9 36.25 75.71 31.5 70.08 25.94C69.92 25.79 69.66 25.96 69.75 26.16C75.88 39.25 73.7 51 69.24 58.79C62.49 70.59 51.08 78.45 51.08 78.45C51.08 78.45 42.62 71.16 38.72 67.49C34.05 63.1 31.57 58.98 31.7 58C31.83 57.1 37.38 51.08 40.29 48.52C44.77 55.5 47.3 57.8 50.73 59.73C51.48 60.15 52.01 60.28 52.66 59.73C55.78 57.07 61.73 50.26 63.11 45.21C65.95 34.83 63.21 23.3 57.05 12.46L49.93 3.41C49.81 3.27 49.58 3.33 49.56 3.51C48.9 9.24 47.03 14.7 43.8 19.59C39.85 25.55 33.96 30.2 28.87 35.21Z" fill="white"/>
+                </mask>
+                <g mask="url(#hm)">
+                    <rect width="100" height="100" fill="#FF8D28"/>
+                </g>
+            </svg>
+            <span>Checkin</span>
+        </a>
+    </header>
+
+    <main class="content">
+        <h1>Child Safety Standards</h1>
+        <p class="last-updated">Last Updated: May 11, 2026</p>
+
+        <h2>1. About Checkin</h2>
+        <p>Checkin is a friend-group coordination app for small private groups — typically 5 to 10 people who already know each other. A group in Checkin is called a <strong>Campfire</strong>, and joining one requires an invitation code shared privately by the campfire's admin.</p>
+        <p>Checkin is <strong>not</strong> a public social network, messaging service, dating app, or content-sharing platform. There are no public profiles, no public discovery, no direct messages between strangers, no algorithmic feeds, and no recommendation systems.</p>
+        <p>Despite Checkin's narrow scope, we take child safety seriously and comply with Google Play's Child Safety Standards Policy and applicable laws.</p>
+
+        <h2>2. Our Standards</h2>
+        <p>Checkin maintains zero tolerance for:</p>
+        <ul>
+            <li><strong>Child Sexual Abuse Material (CSAM)</strong> in any form, including text, image, audio, or video.</li>
+            <li><strong>Grooming</strong>, sexual solicitation, or sexualization of minors.</li>
+            <li><strong>Exploitation</strong> or trafficking of children.</li>
+            <li><strong>Sharing of personal information</strong> about minors in a way that could put them at risk.</li>
+        </ul>
+        <p>Confirmed violations of these standards result in immediate account termination and, where applicable, referral to law enforcement and the National Center for Missing &amp; Exploited Children (NCMEC).</p>
+
+        <h2>3. Age Requirement</h2>
+        <p>Checkin is intended for users aged 13 and older, in compliance with the Children's Online Privacy Protection Act (COPPA) and similar laws. We do not knowingly permit users under 13 to create accounts. If we become aware that an account belongs to a child under 13, we will terminate that account and delete the associated data.</p>
+
+        <h2>4. How to Report Abuse</h2>
+        <p>If you encounter content, behavior, or a user on Checkin that violates these standards — or if you have any concern related to the safety of a child on the app — please report it to us immediately.</p>
+
+        <div class="callout">
+            <p><strong>Email:</strong> <a href="mailto:hparamore@gmail.com">hparamore@gmail.com</a></p>
+            <p><strong>Subject line:</strong> "Child Safety Report"</p>
+            <p>Please include: a description of the content or behavior, the campfire name or join code if known, the username or display name of the user involved, screenshots if available, and any other context that would help us investigate.</p>
+        </div>
+
+        <p>We aim to review every report within 24 hours. You do not need to be a Checkin user to submit a report.</p>
+
+        <h2>5. Urgent Reports</h2>
+        <p>If you believe a child is in immediate danger, please contact local emergency services first.</p>
+        <p>For urgent reports involving the online exploitation of a minor, you can also contact the NCMEC CyberTipline directly:</p>
+        <ul>
+            <li><strong>Phone:</strong> 1-800-843-5678</li>
+            <li><strong>Web:</strong> <a href="https://www.cybertipline.org" target="_blank" rel="noopener">cybertipline.org</a></li>
+        </ul>
+
+        <h2>6. Our Response Process</h2>
+        <p>When we receive a report, we will:</p>
+        <ul>
+            <li>Acknowledge receipt within 24 hours.</li>
+            <li>Investigate the report and review the relevant accounts, content, and campfire.</li>
+            <li>Where a violation is confirmed, take action including content removal, account suspension or termination, and where appropriate, banning the user from rejoining.</li>
+            <li>Report confirmed CSAM to NCMEC and cooperate with law enforcement as legally required.</li>
+            <li>Where possible and appropriate, follow up with the reporter.</li>
+        </ul>
+
+        <h2>7. Preventive Measures</h2>
+        <p>Checkin's design intentionally limits the risks that lead to abuse on larger platforms:</p>
+        <ul>
+            <li><strong>Invite-only groups.</strong> Joining a campfire requires a private join code shared by the admin. There is no public discovery and no "people you may know."</li>
+            <li><strong>No direct messages between strangers.</strong> Users only see other members of campfires they have been invited to.</li>
+            <li><strong>Verified identity.</strong> All accounts require Sign in with Apple, Google sign-in, or a verified email address. We do not permit anonymous accounts.</li>
+            <li><strong>Admin controls.</strong> Campfire admins can remove or ban members at any time.</li>
+            <li><strong>Reporting.</strong> Any user can report abuse via the contact email above, and we are actively building in-app reporting tools.</li>
+        </ul>
+
+        <h2>8. Compliance Officer</h2>
+        <p>Questions about Checkin's child safety standards, requests for our compliance documentation, or formal communication from authorities should be directed to:</p>
+        <p><strong>Hunter Paramore</strong><br>
+        <strong>Email:</strong> <a href="mailto:hparamore@gmail.com">hparamore@gmail.com</a></p>
+
+        <h2>9. Updates to These Standards</h2>
+        <p>We review these standards at least annually and update them when our practices or applicable laws change. When we make material changes, we will update the "Last Updated" date at the top of this page.</p>
+
+        <h2>10. Related Policies</h2>
+        <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html">Terms</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Checkin. All rights reserved.</p>
+    </footer>
+</body>
+</html>
