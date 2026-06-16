@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Beta — Checkin</title>
+    <meta name="description" content="Checkin is in closed beta on Android. Here's how to join in two quick steps.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Goldman Sans';
+            src: url('fonts/GoldmanSans_A_Rg.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Goldman Sans';
+            src: url('fonts/GoldmanSans_A_Md.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Goldman Sans';
+            src: url('fonts/GoldmanSans_A_Bd.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Goldman Sans';
+            src: url('fonts/GoldmanSans_A_Blk.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF8D28;
+            --orange-glow: rgba(255, 141, 40, 0.15);
+            --indigo: #6B5DFF;
+            --red: #FF383C;
+            --bg-primary: #0D0D0F;
+            --bg-secondary: #141418;
+            --bg-card: #1A1A20;
+            --text-primary: #F5F5F7;
+            --text-secondary: #A1A1AA;
+            --text-tertiary: #71717A;
+            --border: rgba(255, 255, 255, 0.06);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Goldman Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Nav (matches index.html) */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(13, 13, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo svg { width: 28px; height: 28px; }
+
+        .nav-logo span {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links li { display: flex; align-items: center; }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--text-primary); }
+
+        .nav-donate-desktop {
+            color: #000 !important;
+            background: var(--orange);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-weight: 700 !important;
+        }
+
+        .nav-donate-desktop:hover {
+            color: #000 !important;
+            filter: brightness(1.1);
+        }
+
+        .nav-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--indigo);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1.5px solid var(--indigo);
+            border-radius: 999px;
+            padding: 6px 16px;
+            transition: all 0.2s;
+        }
+
+        .nav-discord:hover { background: rgba(107, 93, 255, 0.1); }
+        .nav-discord svg { width: 16px; height: 12px; }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 5px 0;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .nav-mobile-right {
+            display: none;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-donate-mobile {
+            color: #000;
+            background: var(--orange);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1;
+            padding: 6px 14px;
+            border-radius: 999px;
+            transition: all 0.2s;
+        }
+
+        .nav-donate-mobile:hover { filter: brightness(1.1); }
+
+        /* Page header */
+        .page-header {
+            padding: 140px 64px 32px;
+            position: relative;
+            text-align: center;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(circle, var(--orange-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .page-eyebrow {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--orange);
+            margin-bottom: 14px;
+        }
+
+        .page-title {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .page-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Steps section */
+        .steps {
+            padding: 32px 64px 24px;
+        }
+
+        .steps-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px 32px;
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            align-items: start;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .step-card:hover {
+            border-color: rgba(255, 141, 40, 0.3);
+        }
+
+        .step-number {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--orange);
+            background: var(--orange-glow);
+            border: 1px solid rgba(255, 141, 40, 0.25);
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .step-content h3 {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        .step-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--orange);
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            transition: filter 0.2s, transform 0.2s;
+        }
+
+        .step-link:hover {
+            filter: brightness(1.08);
+            transform: translateY(-1px);
+        }
+
+        .step-link::after {
+            content: '→';
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        /* Heads up note */
+        .note {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 28px 64px 0;
+        }
+
+        .note-inner {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 24px;
+            display: flex;
+            gap: 14px;
+            align-items: start;
+        }
+
+        .note-icon {
+            font-size: 18px;
+            line-height: 1.5;
+            flex-shrink: 0;
+        }
+
+        .note-text {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .note-text strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* iOS callout */
+        .ios-callout {
+            max-width: 720px;
+            margin: 32px auto 80px;
+            padding: 0 64px;
+            text-align: center;
+        }
+
+        .ios-callout p {
+            color: var(--text-tertiary);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .ios-callout a {
+            display: inline-block;
+        }
+
+        .ios-callout img {
+            height: 44px;
+            width: auto;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 64px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-logo { display: flex; align-items: center; gap: 8px; }
+        .footer-logo svg { width: 20px; height: 20px; }
+
+        .footer-logo span {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .footer-links { display: flex; gap: 24px; }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text-secondary); }
+
+        .footer-copy { font-size: 13px; color: var(--text-tertiary); }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            nav { padding-left: 24px; padding-right: 24px; }
+            .page-header { padding: 110px 24px 24px; }
+            .steps { padding: 24px 24px 16px; }
+            .note { padding: 24px 24px 0; }
+            .ios-callout { padding: 0 24px; margin-bottom: 56px; }
+            footer { padding-left: 24px; padding-right: 24px; }
+
+            .page-title { font-size: 40px; }
+            .page-subtitle { font-size: 16px; }
+
+            .step-card {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 24px;
+            }
+
+            .step-number {
+                width: 48px;
+                height: 48px;
+                font-size: 22px;
+                border-radius: 14px;
+            }
+
+            .step-content h3 { font-size: 20px; }
+
+            .nav-mobile-right { display: flex; }
+            .nav-toggle { display: block; }
+            .nav-links .donate-li { display: none; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                background: rgba(13, 13, 15, 0.95);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border);
+                padding: 8px 24px 16px;
+            }
+
+            .nav-links.open { display: flex; }
+
+            .nav-links li {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+                padding-top: 16px;
+            }
+
+            .nav-links a { font-size: 16px; }
+
+            .nav-discord { justify-content: center; }
+
+            .footer-inner { flex-direction: column; gap: 16px; }
+        }
+
+        @media (max-width: 600px) {
+            .page-title { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <mask id="nav-mask" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="16" y="3" width="68" height="94">
+                    <path d="M28.87 35.21C22.09 41.89 15.43 47.64 16.86 57.92C18.27 68.05 26.77 74.36 33.78 81.17C37.89 85.16 46.85 93.69 49.62 96.34C50.08 96.78 50.83 96.78 51.3 96.34C51.3 96.34 71.79 79.64 77.13 71.84C82.47 64.04 84.99 53.26 82.15 43.77C79.9 36.25 75.71 31.5 70.08 25.94C69.92 25.79 69.66 25.96 69.75 26.16C75.88 39.25 73.7 51 69.24 58.79C62.49 70.59 51.08 78.45 51.08 78.45C51.08 78.45 42.62 71.16 38.72 67.49C34.05 63.1 31.57 58.98 31.7 58C31.83 57.1 37.38 51.08 40.29 48.52C44.77 55.5 47.3 57.8 50.73 59.73C51.48 60.15 52.01 60.28 52.66 59.73C55.78 57.07 61.73 50.26 63.11 45.21C65.95 34.83 63.21 23.3 57.05 12.46L49.93 3.41C49.81 3.27 49.58 3.33 49.56 3.51C48.9 9.24 47.03 14.7 43.8 19.59C39.85 25.55 33.96 30.2 28.87 35.21Z" fill="white"/>
+                </mask>
+                <g mask="url(#nav-mask)">
+                    <rect width="100" height="100" fill="#FF8D28"/>
+                </g>
+            </svg>
+            <span>Checkin</span>
+        </a>
+        <div class="nav-mobile-right">
+            <a href="https://buymeacoffee.com/checkinapp" target="_blank" rel="noopener noreferrer" class="nav-donate-mobile">Donate</a>
+            <button class="nav-toggle" aria-label="Menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('open');">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="whats-new.html">What's New</a></li>
+            <li class="donate-li"><a href="https://buymeacoffee.com/checkinapp" target="_blank" rel="noopener noreferrer" class="nav-donate-desktop">Donate</a></li>
+            <li><a href="https://discord.gg/f6wjFCkUwj" class="nav-discord"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.2477 1.17217C14.0647 0.616946 12.816 0.222936 11.5334 0.000170713C11.3586 0.322301 11.2003 0.653558 11.0591 0.992597C10.3769 0.886989 9.68785 0.833837 8.99786 0.833582C8.30904 0.833582 7.61684 0.887307 6.93643 0.991234C6.79747 0.654633 6.6361 0.32087 6.46095 0C5.17825 0.224891 3.92943 0.619689 2.74578 1.1745C0.394972 4.74332 -0.242106 8.22297 0.0764332 11.6532C1.45298 12.6966 2.9936 13.4901 4.63139 13.9994C4.99869 13.4906 5.32768 12.9489 5.60704 12.3852C5.07406 12.1814 4.55974 11.9296 4.07013 11.6325C4.19896 11.5367 4.32497 11.4379 4.44672 11.3419C5.87041 12.0282 7.42603 12.3861 8.99996 12.3861C10.574 12.3861 12.1295 12.0282 13.5533 11.3418C13.6765 11.445 13.8025 11.5438 13.9299 11.6324C13.4393 11.93 12.9241 12.1825 12.3902 12.3871C12.6705 12.952 12.9969 13.4916 13.3659 14C15.0052 13.4924 16.547 12.6989 17.9239 11.6542L17.9235 11.6546C18.2973 7.6767 17.285 4.22901 15.2477 1.17217ZM6.00987 9.54365C5.12221 9.54365 4.38883 8.71694 4.38883 7.69992C4.38883 6.68291 5.09669 5.84898 6.00704 5.84898C6.91739 5.84898 7.64506 6.68291 7.62951 7.69992C7.61391 8.71694 6.91457 9.54365 6.00987 9.54365ZM11.9901 9.54365C11.101 9.54365 10.3704 8.71694 10.3704 7.69992C10.3704 6.68291 11.0783 5.84898 11.9901 5.84898C12.9018 5.84898 13.6238 6.68291 13.6083 7.69992C13.5927 8.71694 12.8947 9.54365 11.9901 9.54365Z" fill="#6B5DFF"/></svg>Join Our Discord</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <section class="page-header">
+        <div class="page-header-inner">
+            <p class="page-eyebrow">Android Beta</p>
+            <h1 class="page-title">Android's almost here</h1>
+            <p class="page-subtitle">Checkin for Android is in closed beta while we polish the last few rough edges. Want in early? Two quick steps and you're around the campfire.</p>
+        </div>
+    </section>
+
+    <!-- Steps -->
+    <section class="steps">
+        <div class="steps-inner">
+
+            <article class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Join the Google Group</h3>
+                    <p>Google requires every closed beta tester to be part of a Google Group first. Click the link, hit "Join group," and you're in. (You'll need to be signed into the Google account you use on your Android phone.)</p>
+                    <a href="https://groups.google.com/g/checkin-internaltest" class="step-link" target="_blank" rel="noopener noreferrer">Join the Google Group</a>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Opt in to the closed test</h3>
+                    <p>Once you're in the Google Group, open this next link and tap "Become a tester." After that, Checkin will show up in the Play Store like any other app — install it and you're set.</p>
+                    <a href="https://play.google.com/apps/testing/com.paramore.checkin" class="step-link" target="_blank" rel="noopener noreferrer">Become a tester</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Heads up -->
+    <section class="note">
+        <div class="note-inner">
+            <span class="note-icon">🔥</span>
+            <p class="note-text">
+                <strong>Heads up:</strong> it can take Google a few minutes (sometimes up to an hour) to recognize that you've joined the test. If the Play Store says the app isn't available yet, give it a bit and try again. You're not doing anything wrong — Google is just slow.
+            </p>
+        </div>
+    </section>
+
+    <!-- iOS callout -->
+    <section class="ios-callout">
+        <p>On iOS instead? Skip the hoops.</p>
+        <a href="https://apps.apple.com/app/id6754887969" target="_blank" rel="noopener noreferrer">
+            <img src="AppStoreButton.png" alt="Download on the App Store">
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <mask id="footer-mask" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="16" y="3" width="68" height="94">
+                        <path d="M28.87 35.21C22.09 41.89 15.43 47.64 16.86 57.92C18.27 68.05 26.77 74.36 33.78 81.17C37.89 85.16 46.85 93.69 49.62 96.34C50.08 96.78 50.83 96.78 51.3 96.34C51.3 96.34 71.79 79.64 77.13 71.84C82.47 64.04 84.99 53.26 82.15 43.77C79.9 36.25 75.71 31.5 70.08 25.94C69.92 25.79 69.66 25.96 69.75 26.16C75.88 39.25 73.7 51 69.24 58.79C62.49 70.59 51.08 78.45 51.08 78.45C51.08 78.45 42.62 71.16 38.72 67.49C34.05 63.1 31.57 58.98 31.7 58C31.83 57.1 37.38 51.08 40.29 48.52C44.77 55.5 47.3 57.8 50.73 59.73C51.48 60.15 52.01 60.28 52.66 59.73C55.78 57.07 61.73 50.26 63.11 45.21C65.95 34.83 63.21 23.3 57.05 12.46L49.93 3.41C49.81 3.27 49.58 3.33 49.56 3.51C48.9 9.24 47.03 14.7 43.8 19.59C39.85 25.55 33.96 30.2 28.87 35.21Z" fill="white"/>
+                    </mask>
+                    <g mask="url(#footer-mask)">
+                        <rect width="100" height="100" fill="#FF8D28"/>
+                    </g>
+                </svg>
+                <span>Checkin</span>
+            </div>
+            <div class="footer-links">
+                <a href="whats-new.html">What's New</a>
+                <a href="https://discord.gg/f6wjFCkUwj" target="_blank" rel="noopener noreferrer">Discord</a>
+                <a href="privacy-policy.html">Privacy</a>
+                <a href="terms-of-service.html">Terms</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Checkin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
