@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Android Beta — Checkin</title>
-    <meta name="description" content="Checkin is in closed beta on Android. Here's how to join in two quick steps.">
+    <title>What's New — Checkin</title>
+    <meta name="description" content="The latest features, improvements, and fixes shipping in Checkin.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -125,6 +125,7 @@
         }
 
         .nav-links a:hover { color: var(--text-primary); }
+
         .nav-links a.active { color: var(--text-primary); }
 
         .nav-donate-desktop {
@@ -155,6 +156,7 @@
         }
 
         .nav-discord:hover { background: rgba(107, 93, 255, 0.1); }
+
         .nav-discord svg { width: 16px; height: 12px; }
 
         .nav-toggle {
@@ -201,7 +203,7 @@
 
         /* Page header */
         .page-header {
-            padding: 140px 64px 32px;
+            padding: 140px 64px 40px;
             position: relative;
             text-align: center;
             overflow: hidden;
@@ -220,7 +222,7 @@
         }
 
         .page-header-inner {
-            max-width: 720px;
+            max-width: 760px;
             margin: 0 auto;
             position: relative;
         }
@@ -252,147 +254,161 @@
             margin: 0 auto;
         }
 
-        /* Steps section */
-        .steps {
-            padding: 32px 64px 24px;
+        /* Releases */
+        .releases {
+            padding: 40px 64px 80px;
         }
 
-        .steps-inner {
-            max-width: 720px;
+        .releases-inner {
+            max-width: 880px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
         }
 
-        .step-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 28px 32px;
+        .release {
             display: grid;
-            grid-template-columns: 56px 1fr;
-            gap: 20px;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 48px;
+            padding: 56px 0;
+            border-top: 1px solid var(--border);
             align-items: start;
-            transition: border-color 0.2s, transform 0.2s;
         }
 
-        .step-card:hover {
-            border-color: rgba(255, 141, 40, 0.3);
+        .release:first-child { border-top: none; }
+
+        .release-version {
+            font-family: 'Goldman Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
         }
 
-        .step-number {
+        .release-title {
             font-family: 'Goldman Sans', sans-serif;
             font-size: 28px;
             font-weight: 700;
-            color: var(--orange);
-            background: var(--orange-glow);
-            border: 1px solid rgba(255, 141, 40, 0.25);
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
         }
 
-        .step-content h3 {
+        .release-section-heading {
             font-family: 'Goldman Sans', sans-serif;
-            font-size: 22px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-primary);
+            margin-top: 18px;
             margin-bottom: 8px;
-            letter-spacing: -0.01em;
         }
 
-        .step-content p {
-            color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.55;
-            margin-bottom: 16px;
+        .release-section-heading:first-child { margin-top: 0; }
+
+        .release-body { color: var(--text-secondary); font-size: 15px; line-height: 1.55; }
+
+        .release-body p { margin-bottom: 10px; }
+        .release-body p:last-child { margin-bottom: 0; }
+
+        .release-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 10px 0;
         }
 
-        .step-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .release-body li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+        }
+
+        .release-body li::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 10px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
             background: var(--orange);
-            color: #000;
-            text-decoration: none;
+        }
+
+        .release-body strong, .release-body b {
+            color: var(--text-primary);
             font-weight: 700;
-            font-size: 15px;
-            padding: 12px 20px;
-            border-radius: 999px;
-            transition: filter 0.2s, transform 0.2s;
         }
 
-        .step-link:hover {
-            filter: brightness(1.08);
-            transform: translateY(-1px);
+        .release-body a {
+            color: var(--orange);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 141, 40, 0.3);
+            transition: border-color 0.2s;
         }
 
-        .step-link::after {
-            content: '→';
-            font-size: 16px;
-            line-height: 1;
-        }
+        .release-body a:hover { border-bottom-color: var(--orange); }
 
-        /* Heads up note */
-        .note {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 28px 64px 0;
-        }
-
-        .note-inner {
+        /* Media column */
+        .release-media {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 20px 24px;
-            display: flex;
-            gap: 14px;
-            align-items: start;
+            overflow: hidden;
+            display: block;
         }
 
-        .note-icon {
-            font-size: 18px;
-            line-height: 1.5;
-            flex-shrink: 0;
+        .release-media img,
+        .release-media video {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .note-text {
-            color: var(--text-secondary);
+        /* Read more collapse */
+        .release-text.collapsible {
+            position: relative;
+        }
+
+        .release-text.collapsible .release-body {
+            max-height: 240px;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+        }
+
+        .release-text.collapsible.open .release-body {
+            max-height: none;
+            -webkit-mask-image: none;
+            mask-image: none;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            color: var(--orange);
+            font-family: inherit;
             font-size: 14px;
-            line-height: 1.55;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 12px 0 0 0;
         }
 
-        .note-text strong {
-            color: var(--text-primary);
-            font-weight: 700;
+        .read-more-btn::after {
+            content: '▾';
+            font-size: 11px;
+            transition: transform 0.2s;
         }
 
-        /* iOS callout */
-        .ios-callout {
-            max-width: 720px;
-            margin: 32px auto 80px;
-            padding: 0 64px;
-            text-align: center;
+        .release-text.collapsible.open .read-more-btn::after {
+            transform: rotate(180deg);
         }
 
-        .ios-callout p {
-            color: var(--text-tertiary);
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
+        .release-text:not(.collapsible) .read-more-btn { display: none; }
 
-        .ios-callout a {
-            display: inline-block;
-        }
-
-        .ios-callout img {
-            height: 44px;
-            width: auto;
+        /* No-media variant: text spans full width */
+        .release.no-media {
+            grid-template-columns: minmax(0, 1fr);
         }
 
         /* Footer */
@@ -436,28 +452,28 @@
         @media (max-width: 900px) {
             nav { padding-left: 24px; padding-right: 24px; }
             .page-header { padding: 110px 24px 24px; }
-            .steps { padding: 24px 24px 16px; }
-            .note { padding: 24px 24px 0; }
-            .ios-callout { padding: 0 24px; margin-bottom: 56px; }
+            .releases { padding-left: 24px; padding-right: 24px; padding-bottom: 56px; }
             footer { padding-left: 24px; padding-right: 24px; }
 
             .page-title { font-size: 40px; }
             .page-subtitle { font-size: 16px; }
 
-            .step-card {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                padding: 24px;
+            .release {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 20px;
+                padding: 40px 0;
             }
 
-            .step-number {
-                width: 48px;
-                height: 48px;
-                font-size: 22px;
-                border-radius: 14px;
+            /* Image goes in-line under the title on mobile */
+            .release-media {
+                order: 2;
             }
 
-            .step-content h3 { font-size: 20px; }
+            .release-text {
+                order: 1;
+            }
+
+            .release-title { font-size: 24px; }
 
             .nav-mobile-right { display: flex; }
             .nav-toggle { display: block; }
@@ -529,7 +545,7 @@
         <ul class="nav-links">
             <li><a href="index.html#features">Features</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a href="whats-new.html">What's New</a></li>
+            <li><a href="whats-new.html" class="active">What's New</a></li>
             <li class="donate-li"><a href="https://buymeacoffee.com/checkinapp" target="_blank" rel="noopener noreferrer" class="nav-donate-desktop">Donate</a></li>
             <li><a href="https://discord.gg/f6wjFCkUwj" class="nav-discord"><svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.2477 1.17217C14.0647 0.616946 12.816 0.222936 11.5334 0.000170713C11.3586 0.322301 11.2003 0.653558 11.0591 0.992597C10.3769 0.886989 9.68785 0.833837 8.99786 0.833582C8.30904 0.833582 7.61684 0.887307 6.93643 0.991234C6.79747 0.654633 6.6361 0.32087 6.46095 0C5.17825 0.224891 3.92943 0.619689 2.74578 1.1745C0.394972 4.74332 -0.242106 8.22297 0.0764332 11.6532C1.45298 12.6966 2.9936 13.4901 4.63139 13.9994C4.99869 13.4906 5.32768 12.9489 5.60704 12.3852C5.07406 12.1814 4.55974 11.9296 4.07013 11.6325C4.19896 11.5367 4.32497 11.4379 4.44672 11.3419C5.87041 12.0282 7.42603 12.3861 8.99996 12.3861C10.574 12.3861 12.1295 12.0282 13.5533 11.3418C13.6765 11.445 13.8025 11.5438 13.9299 11.6324C13.4393 11.93 12.9241 12.1825 12.3902 12.3871C12.6705 12.952 12.9969 13.4916 13.3659 14C15.0052 13.4924 16.547 12.6989 17.9239 11.6542L17.9235 11.6546C18.2973 7.6767 17.285 4.22901 15.2477 1.17217ZM6.00987 9.54365C5.12221 9.54365 4.38883 8.71694 4.38883 7.69992C4.38883 6.68291 5.09669 5.84898 6.00704 5.84898C6.91739 5.84898 7.64506 6.68291 7.62951 7.69992C7.61391 8.71694 6.91457 9.54365 6.00987 9.54365ZM11.9901 9.54365C11.101 9.54365 10.3704 8.71694 10.3704 7.69992C10.3704 6.68291 11.0783 5.84898 11.9901 5.84898C12.9018 5.84898 13.6238 6.68291 13.6083 7.69992C13.5927 8.71694 12.8947 9.54365 11.9901 9.54365Z" fill="#6B5DFF"/></svg>Join Our Discord</a></li>
         </ul>
@@ -538,53 +554,58 @@
     <!-- Header -->
     <section class="page-header">
         <div class="page-header-inner">
-            <p class="page-eyebrow">Android Beta</p>
-            <h1 class="page-title">Android's almost here</h1>
-            <p class="page-subtitle">Checkin for Android is in closed beta while we polish the last few rough edges. Want in early? Two quick steps and you're around the campfire.</p>
+            <p class="page-eyebrow">What's New</p>
+            <h1 class="page-title">Fresh logs on the fire</h1>
+            <p class="page-subtitle">The latest features, improvements, and fixes shipping in Checkin. Newest at the top.</p>
         </div>
     </section>
 
-    <!-- Steps -->
-    <section class="steps">
-        <div class="steps-inner">
+    <!-- Releases -->
+    <section class="releases">
+        <div class="releases-inner">
 
-            <article class="step-card">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h3>Join the Google Group</h3>
-                    <p>Google requires every closed beta tester to be part of a Google Group first. Click the link, hit "Join group," and you're in. (You'll need to be signed into the Google account you use on your Android phone.)</p>
-                    <a href="https://groups.google.com/g/checkin-internaltest" class="step-link" target="_blank" rel="noopener noreferrer">Join the Google Group</a>
+            <!-- Example release with media + collapsible body -->
+            <article class="release">
+                <div class="release-text collapsible">
+                    <p class="release-version">2026.4</p>
+                    <h2 class="release-title">Android joins the Campfire</h2>
+                    <div class="release-body">
+                        <p class="release-section-heading">New features</p>
+                        <ul>
+                            <li>🔥 Daily check-in reminders, now on Android — same warm nudge iOS friends already get.</li>
+                            <li>⏰ A friendly 30-minute heads-up before your check-in expires, so you can extend without thinking about it.</li>
+                            <li>🔗 Tap a notification to jump straight to the right Campfire.</li>
+                        </ul>
+                        <p class="release-section-heading">Improvements</p>
+                        <ul>
+                            <li>Reminders survive a phone reboot — no more silent mornings after an overnight update.</li>
+                            <li>Stale "checked in" notifications clear themselves the moment you douse your fire on another device.</li>
+                        </ul>
+                    </div>
+                    <button class="read-more-btn" type="button">Read more</button>
+                </div>
+                <!-- Replace src with the screenshot/GIF for this release -->
+                <a class="release-media" href="#" onclick="return false;">
+                    <img src="smartnotifications.png" alt="Smart notifications on Android">
+                </a>
+            </article>
+
+            <!-- Example release without media -->
+            <article class="release no-media">
+                <div class="release-text">
+                    <p class="release-version">2026.3</p>
+                    <h2 class="release-title">Smaller fixes around the fire</h2>
+                    <div class="release-body">
+                        <ul>
+                            <li>Fixed an expired Discord invite link in the footer 🙃</li>
+                            <li>Added Privacy Policy and Terms of Service pages.</li>
+                            <li>Tweaked donate buttons to point straight at Buy Me a Coffee.</li>
+                        </ul>
+                    </div>
                 </div>
             </article>
 
-            <article class="step-card">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h3>Opt in to the closed test</h3>
-                    <p>Once you're in the Google Group, open this next link and tap "Become a tester." After that, Checkin will show up in the Play Store like any other app — install it and you're set.</p>
-                    <a href="https://play.google.com/apps/testing/com.paramore.checkin" class="step-link" target="_blank" rel="noopener noreferrer">Become a tester</a>
-                </div>
-            </article>
-
         </div>
-    </section>
-
-    <!-- Heads up -->
-    <section class="note">
-        <div class="note-inner">
-            <span class="note-icon">🔥</span>
-            <p class="note-text">
-                <strong>Heads up:</strong> it can take Google a few minutes (sometimes up to an hour) to recognize that you've joined the test. If the Play Store says the app isn't available yet, give it a bit and try again. You're not doing anything wrong — Google is just slow.
-            </p>
-        </div>
-    </section>
-
-    <!-- iOS callout -->
-    <section class="ios-callout">
-        <p>On iOS instead? Skip the hoops.</p>
-        <a href="https://apps.apple.com/app/id6754887969" target="_blank" rel="noopener noreferrer">
-            <img src="AppStoreButton.png" alt="Download on the App Store">
-        </a>
     </section>
 
     <!-- Footer -->
@@ -612,10 +633,30 @@
     </footer>
 
     <script>
+        // Mobile nav close on link tap
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-toggle').classList.remove('active');
                 document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+
+        // Read more — only show the toggle if content is actually overflowing
+        document.querySelectorAll('.release-text.collapsible').forEach(wrap => {
+            const body = wrap.querySelector('.release-body');
+            const btn = wrap.querySelector('.read-more-btn');
+            if (!body || !btn) return;
+
+            // If natural height fits inside collapsed max, drop the collapse entirely
+            requestAnimationFrame(() => {
+                if (body.scrollHeight <= body.clientHeight + 4) {
+                    wrap.classList.remove('collapsible');
+                }
+            });
+
+            btn.addEventListener('click', () => {
+                const open = wrap.classList.toggle('open');
+                btn.textContent = open ? 'Show less' : 'Read more';
             });
         });
     </script>
